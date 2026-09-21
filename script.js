@@ -28,7 +28,6 @@ promptButton.addEventListener("click", () => {
     }
 
     numberOfBoxPerRow = Number(userInput);
-    console.log(typeof(numberOfBoxPerRow));
     while(container.firstChild) {
         container.removeChild(container.firstChild);
     }
@@ -42,11 +41,14 @@ function getRandomIntRgb() {
     return randomRgb = Math.floor(Math.random() * 255);
 }
 
-console.log(getRandomIntRgb());
-
-
 container.addEventListener("mouseover", (event) => {
+
+    if(event.target === container) return;
+
+    let currentOpacity = parseFloat(window.getComputedStyle(event.target).opacity);
+    let newOpacity = Math.min(currentOpacity + 0.1, 1);
     event.target.style.backgroundColor = `rgb(${getRandomIntRgb()}, ${getRandomIntRgb()}, ${getRandomIntRgb()})`;
+    event.target.style.opacity = newOpacity;
 
     setTimeout(() => {
         event.target.style.backgroundColor = "";
@@ -61,9 +63,9 @@ function createBoxes(num, width) {
         container.appendChild(box);
         box.style.width = `${width}px`;
         box.style.height = `${width}px`;
+        box.style.opacity = 0;
         boxArr.push(box);
     }
 }
 
 createBoxes(totalNumberOfBoxes, widthBox);
-console.log(container.firstChild);
