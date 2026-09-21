@@ -7,7 +7,7 @@ let widthContainer = parseFloat(getComputedStyle(container).width);
 let widthBox = widthContainer / numberOfBoxPerRow;
 
 let promptButton = document.createElement("button");
-promptButton.textContent = "Adjust grid";
+promptButton.textContent = "Resize grid";
 promptButton.setAttribute("style", "margin : 15px;")
 document.body.prepend(promptButton);
 
