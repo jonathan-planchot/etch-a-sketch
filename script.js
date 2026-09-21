@@ -37,8 +37,16 @@ promptButton.addEventListener("click", () => {
     createBoxes(newTotalNumberOfBoxes, newWidthBox);
 });
 
+function getRandomIntRgb() {
+    let randomRgb;
+    return randomRgb = Math.floor(Math.random() * 255);
+}
+
+console.log(getRandomIntRgb());
+
+
 container.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = "blue";
+    event.target.style.backgroundColor = `rgb(${getRandomIntRgb()}, ${getRandomIntRgb()}, ${getRandomIntRgb()})`;
 
     setTimeout(() => {
         event.target.style.backgroundColor = "";
