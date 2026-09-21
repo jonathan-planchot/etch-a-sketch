@@ -1,0 +1,11 @@
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: top;
+    width: 960px;
+    height: 960px;
+    border-style: none;
+    border-color: purple;
+    border-width: 1px;
+}
